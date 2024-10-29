@@ -19,7 +19,7 @@ We seek to characterize the radiation emitted by our three specimens, the isotop
 
 \subsection{Cesium-137 Spectrum}
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/spectrum.pdf}
     \caption{Spectrum of Cesium-137. Note the counts are in log scale, which creates the lines between 800 and 1200 KeV, where counts are low}
@@ -28,7 +28,7 @@ We seek to characterize the radiation emitted by our three specimens, the isotop
 
 Figure \ref{fig:cs137-spectrum} shows a labeled spectrum collected, using our PMT setup, from a sample of Cesium-137. Figures \ref{fig:cs137-31} and \ref{fig:cs137-662} show close-up views of the two full energy peaks, along with appropriately fitted curves. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/peak-31.pdf}
     \caption{31 KeV Full Energy Peak of Cesium-137}
@@ -37,7 +37,7 @@ Figure \ref{fig:cs137-spectrum} shows a labeled spectrum collected, using our PM
 
 We know from decay schemes that the first peak should be centered at 31 KeV. Our spectrum data in that region is relatively sparse due to the low gain we used, as shown by the low DOF count. Accordingly, our fitted curve fails to capture some of the data points near the peak and around the tails—hence the high $\chi^2$ score. The mean $\mu$ estimated by the fit is very close to 31 KeV, however the margin of error does not quite encompass it. This suggests some bias inherent in our setup. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/peak-662.pdf}
     \caption{662 KeV Full Energy Peak of Cesium-137}
@@ -48,7 +48,7 @@ We also know that the second peak should be centered at 662 KeV. At this energy,
 
 \subsection{Sodium-22 Spectrum}
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/spectrum.pdf}
     \caption{Spectrum of Sodium-22. Note the counts in log scale. }
@@ -57,7 +57,7 @@ We also know that the second peak should be centered at 662 KeV. At this energy,
 
 Moving on to Sodium-22, the spectrum collected by the PMT is shown in Figure \ref{fig:na22-spectrum} and the two fitted full energy peaks in Figures \ref{fig:na22-511} and \ref{fig:na22-1275}. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/peak-511.pdf}
     \caption{511 KeV Full Energy Peak of Sodium-22}
@@ -66,7 +66,7 @@ Moving on to Sodium-22, the spectrum collected by the PMT is shown in Figure \re
 
 The first peak should fall around 511 KeV. Here, we observe decently rich data with good DOF, and our fit is close, with a good $\chi^2$ score. As with our results for Cesium-137, we observe here that our mean is narrowly biased away from the expected value, and its margin of error is not large enough to explain this. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/peak-1275.pdf}
     \caption{1275 KeV Full Energy Peak of Sodium-22}
@@ -78,7 +78,7 @@ The second peak should fall around 1275 KeV. Here, the data is rich, albeit unce
 
 \subsection{Barium-133 Spectrum}
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/spectrum.pdf}
     \caption{Spectrum of Barium-133. Note the counts in log scale.}
@@ -87,7 +87,7 @@ The second peak should fall around 1275 KeV. Here, the data is rich, albeit unce
 
 Finally, we consider Barium-133. Its PMT-collected spectrum is shown labeled in Figure \ref{fig:ba133-spectrum} and three full energy peaks in Figures \ref{fig:ba133-32}, \ref{fig:ba133-81}, and \ref{fig:ba133-356}. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/peak-32.pdf}
     \caption{32 KeV Full Energy Peak of Barium-133}
@@ -96,7 +96,7 @@ Finally, we consider Barium-133. Its PMT-collected spectrum is shown labeled in 
 
 Similarly to the 31 KeV peak of Cesium-137, we observe sparse data for the 32 KeV peak of Barium-133. The DOF is low, however the fit is visually very good and the $\chi^2$ is low compared to the scale of the data. Again, we observe a bias due to a slightly deviating mean and low margins of error. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/peak-81.pdf}
     \caption{81 KeV Full Energy Peak of Barium-133}
@@ -105,7 +105,7 @@ Similarly to the 31 KeV peak of Cesium-137, we observe sparse data for the 32 Ke
 
 The 81 KeV peak continues the same trend, with good visual fit, low $\chi^2$, and a bias. This time, the bias is higher than we have previously observed, and accompanied by small margins of error. It is unclear why this energy peak is so much more biased than the others. Finding spectra with peaks around this magnitude may prove insightful. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/peak-356.pdf}
     \caption{356 KeV Full Energy Peak of Barium-133}
@@ -138,49 +138,49 @@ where $\delta T$ is taken to be $1$ second.
 
 With this in mind, we measure $N$ and $T$ for various absorbers and various radiation energies. Then, we fit $R = R_0 e^{-\lambda x}$ curves and extract the $\lambda$s as estimates of the linear attenuation coefficients. 
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/rates-31.pdf}
     \caption{Photon Rate Curve at 31 KeV Gammas from Cesium-137}
     \label{fig:rates31}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/rates-662.pdf}
     \caption{Photon Rate Curve at 662 KeV Gammas from Cesium-137}
     \label{fig:rates662}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/rates-511.pdf}
     \caption{Photon Rate Curve at 511 KeV Gammas from Sodium-22}
     \label{fig:rates511}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/rates-1275.pdf}
     \caption{Photon Rate Curve at 1275 KeV Gammas from Sodium-22}
     \label{fig:rates1275}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/rates-32.pdf}
     \caption{Photon Rate Curve at 32 KeV Gammas from Barium-133}
     \label{fig:rates32}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/rates-81.pdf}
     \caption{Photon Rate Curve at 81 KeV Gammas from Barium-133}
     \label{fig:rates81}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!htb]
     \centering
     \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/rates-356.pdf}
     \caption{Photon Rate Curve at 356 KeV Gammas from Barium-133}
@@ -205,6 +205,24 @@ In general, most of our the curves we regress exhibit small $\chi^2$ values, ind
 \label{table:1}
 \end{table}
 
-From the fitted curves, we extract the values of $\lambda$ and compile them in Table \ref{table:1}. We also include expected values extrapolated from a s seen in Table \ref{table:1}, some of the fitted $\lambda$s are close to the expected values, but exhibit bias and margins of error that are too small. Other $\lambda$s stray far from the expectation. In general, our estimates are worse for low energy radiation, which may be attributable to poor spectrum data in those areas. 
+From the fitted curves, we extract the values of $\lambda$ and compile them in Table \ref{table:1}. These values are plotted against the energies from which they were collected in Figure \ref{fig:energy-lambdas}. We also include expected values extrapolated from a reference table. Figure \ref{fig:lambdas-residuals}, compares these values to our fitted $\lambda$s via a residual error plot. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/lamdba_vs_energy.pdf}
+    \caption{Measured $\lambda$s versus energy on a log-log scale}
+    \label{fig:energy-lambdas}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/lambda_residuals.pdf}
+    \caption{Residual error of fitted $\lambda$}
+    \label{fig:lambdas-residuals}
+\end{figure}
+
+Looking at these figures, we observe some fitted $\lambda$s close to the expected values, and others straying far from the expectation. In particular, we observe our estimates are reasonably good for high energies, and lower than expected for low energies. This clear, non-random trend hints at systematic processes unaccounted for in our inverse exponential model—specifically processes that should dominate at low energies. We might elucidate these underlying effects by considering models of quantum scattering, as opposed to classical. There might also be some bias from the sparse, error-ridden spectrum data for low energy peaks. This may be due to low gain, poorly estimated background counts, and/or badly selected binning regions. There is also the issue of error values failing to encompass the expected values. This may, in part, be a matter of fixing the biases. More work should be done to clarify additional sources of error—for example, the fitting software could not accommodate errors in our $x$ measurement. 
+
+To conclude, this experiment demonstrated the use of a PMT setup to measure spectra and determine linear attenuation coefficients. We observed its success at measuring radiation energy levels and obtaining good estimates for those and related quantities. However, we also note biases in those estimates, and troubling deficiencies in the margins of error that normally account for such deviations. In the future, we should be more rigorous with our setup—especially with regard to accounting for errors. For example, it would be a good idea to obtain unbent aluminum absorbers. These will remove some bias and increase the accountability of our errors. Beyond that, we should clarify our models and adopt more expressive quantum mechanical theories. Hopefully, these will resolve the systematic biases we observed when estimating linear attenuation coefficients. 
 
 \end{document}
