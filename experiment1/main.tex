@@ -2,6 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{caption}
+\usepackage{amsmath}
 \captionsetup[figure]{font=small, labelfont=bf}
 
 \title{Gamma cross sections}
@@ -14,7 +15,7 @@
 
 \section{Results}
 
-We seek to characterize the radiation emitted by our three specimens, the isotopes Cesium-137, Sodium-22, and Barium-133. To do so, we make use of the detector and photomultiplier (PMT) apparatus. This setup works, in essence, by converting radiation to visible light, converting that visible light to an electrical signal, and then amplifying that signal. The electrical signal we receive then gives us a proportional representation of the radiation spectrum. In all the following results, the detector, which was provided +900 volts, was 6.9 centimeters from the absorber, and the absorber was 7.4 centimeters from the source. 
+We seek to characterize the radiation emitted by our three specimens, the isotopes Cesium-137, Sodium-22, and Barium-133. To do so, we make use of the detector and photomultiplier (PMT) apparatus. This setup works, in essence, by converting radiation to visible light, converting that visible light to an electrical signal, and then amplifying that signal. The electrical signal we receive then gives us a proportional representation of the radiation spectrum. In all the following results, the detector, which was provided +900 volts, was 6.9 centimeters from the absorber, and the absorber was 7.4 centimeters from the source. For the following spectra, no absorber was used. 
 
 \subsection{Cesium-137 Spectrum}
 
@@ -117,8 +118,93 @@ Finally, the 356 KeV peak returns to the original trend of good fit, low $\chi^2
 
 For all the energy peaks above, we observed a small bias in our fitted estimates of the mean. The low margins of error suggest that this is not a random bias, but rather a defect in our setup. One conjecture is that the bias from out of inaccurate calibration of the energy scale. This may explain why the bias for the 81 KeV peak of Barium-133 was unusually high—the energy was extrapolated from the calibration points around 32 and 356 KeV. 
 
-\subsection{Extracting linear attenuation coefficients}
+\subsection{Extracting Linear Attenuation Coefficients of Aluminum}
 
-\section{Conclusions}
+The spectra we can collect with our PMT setups can be used to determine linear attentuation coefficients, often denoted $\lambda$, which describe an absorbent material's radiation shielding ability. Here, we will measure $\lambda$s for aluminum and determine how it performs absorbing different radiation of various energies. 
+
+Our setup will remain mostly the same, though we now use aluminum blocks of various thicknesses as absorbers. Recall that when we measured the spectra, no absorbers were used. 
+
+From theory, $\lambda$ is related to $R$, the rate at which photons pass through the absorber, and $x$, the thickness of the absorber, by: 
+\[R = R_0 e^{-\lambda x}\]
+$R$ is given by:
+\[R = \frac{N}{T}\]
+where $N$ is the number of photons from a radiation source that pass through the absorber in time $T$. 
+
+Given a radiation source that emits radiation at known energies, we use the USX software to collect a spectrum. The spectrum is basically a histogram binned by photon energy. So, the photon counts can be found by checking the bins corresponding to the energies of interest. USX compiles two counts, $G$ is the gross count and $B$ is the background count. Since we wish to exclude background radiation, we use $N = G - B$. Accordingly, the error:
+\[\delta N = \sqrt{\delta G^2 + \delta B^2} = \sqrt{\sqrt{G}^2 + \sqrt{B}^2} = \sqrt{G + B}\]
+The error of $R$ is then:
+\[\delta R = R * (\frac{\delta N}{N} + \frac{\delta T}{T})\]
+where $\delta T$ is taken to be $1$ second. 
+
+With this in mind, we measure $N$ and $T$ for various absorbers and various radiation energies. Then, we fit $R = R_0 e^{-\lambda x}$ curves and extract the $\lambda$s as estimates of the linear attenuation coefficients. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/rates-31.pdf}
+    \caption{Photon Rate Curve at 31 KeV Gammas from Cesium-137}
+    \label{fig:rates31}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/cs137/rates-662.pdf}
+    \caption{Photon Rate Curve at 662 KeV Gammas from Cesium-137}
+    \label{fig:rates662}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/rates-511.pdf}
+    \caption{Photon Rate Curve at 511 KeV Gammas from Sodium-22}
+    \label{fig:rates511}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/na22/rates-1275.pdf}
+    \caption{Photon Rate Curve at 1275 KeV Gammas from Sodium-22}
+    \label{fig:rates1275}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/rates-32.pdf}
+    \caption{Photon Rate Curve at 32 KeV Gammas from Barium-133}
+    \label{fig:rates32}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/rates-81.pdf}
+    \caption{Photon Rate Curve at 81 KeV Gammas from Barium-133}
+    \label{fig:rates81}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{experiment1/figures/ba133/rates-356.pdf}
+    \caption{Photon Rate Curve at 356 KeV Gammas from Barium-133}
+    \label{fig:rates356}
+\end{figure}
+
+In general, most of our the curves we regress exhibit small $\chi^2$ values, indicating good fit to the data. This supports the theoretical result that absorber thickness is related to photon rate as an inverse exponential. However, the data itself is sparse and has low DOF. In some of the plots, such as \ref{fig:rates356} it exhibits significant residual effects around the fitted curve. In part, this is due to the sparsity of the data. But systematic issues with our setup are also likely present. Namely, many of the thinner aluminum absorbers we used were bent, thus introducing error both within our thickness measurements and the aluminum's absorbing effect. 
+
+\section{Conclusions}\label{sec:conclusion}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c | c c c c c c c |}
+    \hline
+    Energy (KeV) & 31 & 32 & 81 & 356 & 511 & 662 & 1275 \\
+    \hline
+    Fitted $\lambda$ & 127.9 & 194.7 & 49.7 & 26.8 & 21.3 & 19.1 & 14.7 \\
+    Expected $\lambda$ & 279.2 & 256.7 & 54.1 & 26.7 & 22.6 & 20.2 & 14.7 \\
+    \hline
+\end{tabular}
+\caption{Fitted and expected linear attentuation coefficients for various energy levels.}
+\label{table:1}
+\end{table}
+
+From the fitted curves, we extract the values of $\lambda$ and compile them in Table \ref{table:1}. We also include expected values extrapolated from a s seen in Table \ref{table:1}, some of the fitted $\lambda$s are close to the expected values, but exhibit bias and margins of error that are too small. Other $\lambda$s stray far from the expectation. In general, our estimates are worse for low energy radiation, which may be attributable to poor spectrum data in those areas. 
 
 \end{document}
