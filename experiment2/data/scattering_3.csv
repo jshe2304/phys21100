@@ -1,4 +1,8 @@
-theta, centroid, centroid_err, gain, fine_gain
+theta,centroid,centroid_err,gain,fine_gain
 90, 378, 1, 2, 1
 60, 516, 1, 2, 1
 45, 604, 1, 2, 1
+30, 712, 1, 2, 1
+0, 834, 1, 2, 1
+120, 305, 1, 2, 1
+105, 340, 1, 2, 1
