@@ -16,11 +16,11 @@
 
 \section{Results}
 
-In this lab we evaluate the quantum mechanical model for scattering proposed by Compton. The sensitivity of the model necessitates calibrating our measurements to be as accurate as possible. Thus, our effort here is two-fold: precise calibration of spectrum measurements and an empirical evaluation of the Compton model. 
+In this lab we evaluate the quantum mechanical model for scattering proposed by Compton. The sensitivity of the model necessitates calibrating our measurements to be as accurate as possible. Thus, our effort is two-fold: precise calibration of spectrum measurements and an empirical evaluation of the Compton model. 
 
 \subsection{Calibration}
 
-To calibrate our measurements, we first collect gamma spectra from a variety of radioactive sources. Then, we measure the location of the full peaks in the channel units of the PHA software. The expectation is that Channel is predictive of Energy, so we then compare our channel measurements to the expected energies of the peaks, and try to derive some relation between them. 
+To calibrate our measurements, we first collect gamma spectra from a variety of radioactive sources. Then, we measure the location of the full peaks in units of channel. The expectation is that channel is predictive of energy, so we compare our channel measurements to the expected energy of the corresponding peak, and try to derive some relation between them. 
 
 We measure full peak location by visually determining an interval within which the peak falls and fitting a Gaussian function to the spectrum data: 
 \[
@@ -31,7 +31,7 @@ We can then extract the fitted mean which represents the peak location. The PHA 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{experiment2/figures/scattering3/0.pdf}
-    \caption{Scattering of Cesium-137 gammas at 0 degrees. A Gaussian + Linear function is fit to the data. Function parameters are listed. }
+    \caption{Spectrum of cesium-137 gammas scattered at 0 degrees. A Gaussian + Linear function is fit to the data, and the fit parameters are listed. }
     \label{fig:scattering-0}
 \end{figure}
 
@@ -62,7 +62,7 @@ We repeat this fitting step on a range of radioactive sources which exhibit peak
 \label{table:calibration3}
 \end{table}
 
-Then, we can fit a curve to this data to obtain a map between channel and energy. It turns out that a simple linear function suffices. As shown in \ref{fig:calibration3}, the linear model fits this data very well, and achieves a reduced $\chi^2$ score of $4.42$, which is reasonably close to $1$, indicating good fit. 
+Then, we can fit a curve to this data to obtain a map between channel and energy. It turns out that a simple linear function suffices. As shown in Figure \ref{fig:calibration3}, the linear model fits this data very well, and achieves a reduced $\chi^2$ score of $4.42$, which is close to $1$, indicating a good fit. 
 
 \begin{figure}[!h]
     \centering
@@ -79,16 +79,16 @@ The uncertainties $\delta m$ and $\delta b$ are computed by the regression softw
 
 \subsection{Scattering Data}
 
-To evaluate the accuracy of the Compton model and our own setup, we will scatter radiation from a Cesium-137 source and collect spectra from various angles. One such spectrum is shown in Figure \ref{}. Then we determine the full peak location, calibrate those measurements to obtain a set of energies, and analyze their relation to the scattering angles. 
+To evaluate the accuracy of the Compton model and our own setup, we will scatter radiation from a Cesium-137 source and collect spectra from various angles. One such spectrum is shown in Figure \ref{fig:scattering1-30}. Then we determine the full peak location, calibrate those measurements to obtain a set of energies, and analyze their relation to the scattering angles. 
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{experiment2/figures/scattering1-30.pdf}
-    \caption{Calibration functions fit on data from Time 0 and Time 1.}
-    \label{fig:gain-drift}
+    \caption{Spectrum of cesium-37 gammas scattering at 30 degrees. }
+    \label{fig:scattering1-30}
 \end{figure}
 
-A preliminary set of data is listed in Table \ref{table:scattering1}. Here, in the interest of time, we did not fit Gaussian curves to obtain the location of the full peaks, rather we rely on the PHA software's centroid functionality. This tends to give accurate measurements with wider margins of error, which are fine for our use now. We compute the energy using the calibration method described above and obtain uncertainty estimates. 
+A preliminary set of data is listed in Table \ref{table:scattering1}. Here, in the interest of time, we did not fit Gaussian curves to obtain the location of the full peaks, rather we rely on the PHA software's centroid functionality. This tends to give accurate measurements with wider margins of error, which are fine for our use now. We compute the energies and their uncertainties using the calibration method described above. 
 
 \begin{table}[!h]
 \footnotesize
@@ -106,7 +106,7 @@ A preliminary set of data is listed in Table \ref{table:scattering1}. Here, in t
     120 & $124 \pm 1$ & 1 & $124.00 \pm 1.00$ & $216.41 \pm 1.95$ \\
     \hline
 \end{tabular}
-\caption{Table of scattering measurements taken from setup with collimator. Centroid denotes the fitted peak mean $\mu$ and $\text{Channel}=\text{Centroid}/\text{Gain}$}
+\caption{Table of scattering measurements for cesium-37. Centroid denotes the fitted peak mean $\mu$ and $\text{Channel}=\text{Centroid}/\text{Gain}$}
 \label{table:scattering1}
 \end{table}
 
@@ -123,7 +123,7 @@ From Figure \ref{fig:scattering-1}, we observe a systematic bias. There is a not
 
 \subsection{Systematic Bias: Calibration}
 
-What is causing this systematic bias of our data from the expected Compton relation?
+What is causing this systematic bias?
 
 Our initial guess was that the issue lied in our calibration. It was unlikely our calibration functions failed to extrapolate, as we had explicitly included datapoints in the $662$ KeV energy scale in our calibration datasets. We hypothesized there was a bias introduced by the staggering of our measurements. We decided to test this by checking if calibrating at different times of the day produced different result. 
 
@@ -214,7 +214,7 @@ Now, the two curves looks fairly close. However, this seems only to be a relic o
 
 It seems our issues all boil down to biases around small values of $\theta$. Though we were able to dispel the large overestimating bias via a intensity-reducing lead collimator, this revealed an underestimating bias which, though smalled in magnitude, continues to prove troubling. 
 
-Our previous exploration of data-related issues, demonstrated by the inquiry into calibration error, proved unfruitful. We thus conjecture that these biases are inherent to our setup, as evidenced by our success culling PMT saturation. Going forward, we might seek to ensure the collimator is not interfering with photons to reduce their energy, which would explain the negative bias we observe. Or, we might continue to investigate the relationship between the gamma beam and the way the PMT measures it discretely. That is to say, we should look towards our success using the collimator, and use it as inspiration to continue our search. 
+Our previous exploration of data-related issues, demonstrated by the inquiry into calibration error, proved unfruitful. We thus conjecture that these biases are inherent to our setup, as evidenced by our success remedying PMT saturation. Going forward, we might seek to ensure the collimator is not interfering with photons to reduce their energy, which would explain the negative bias we observe. Or, we might continue to investigate the relationship between the gamma beam and the way the PMT measures it discretely. That is to say, we should look towards our success using the collimator, and use it as inspiration to continue our search. 
 
 \end{document}
 
