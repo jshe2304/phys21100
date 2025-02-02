@@ -69,13 +69,15 @@ def data_fit(p0, func, xvar, yvar, err, tmi=0):
     
     return pf, pferr, chisq,dof
 
-def fit(X, Y, Y_err, fit_lower, fit_upper, xlabel, ylabel, title):
+def fit(X, Y, Y_err, fit_lower, fit_upper, xlabel, ylabel, title, ax=None, ):
 
     # Fit Data
     
     x = X[fit_lower:fit_upper].to_numpy()
     y = Y[fit_lower:fit_upper].to_numpy()
     y_err = Y_err[fit_lower:fit_upper].to_numpy()
+    
+    print(f'Fit Region: ({x.min()}, {x.max()})')
 
     params_0 = [1, 10]
 
@@ -83,7 +85,7 @@ def fit(X, Y, Y_err, fit_lower, fit_upper, xlabel, ylabel, title):
     
     # Plot Data
 
-    fig, ax = plt.subplots(figsize=(5, 5))
+    if ax is None: fig, ax = plt.subplots(figsize=(5, 5))
 
     ax.errorbar(
         X, Y, Y_err, 
@@ -104,9 +106,9 @@ def fit(X, Y, Y_err, fit_lower, fit_upper, xlabel, ylabel, title):
     
     # Add Text
 
-    txt = '$\\log D = \\gamma \\cdot \\log (t_d - t) + \\log A$ \n'
+    txt = '$\\ln r = \\gamma \\cdot \\ln (t_d - t) + \\ln A$ \n'
     txt += f'$\\gamma = {params[0]:.2f} \\pm {params_err[0]:.2f}$ \n'
-    txt += f'$\\log A = {params[1]:.2f} \\pm {params_err[1]:.2f}$ \n'
+    txt += f'$\\ln A = {params[1]:.2f} \\pm {params_err[1]:.2f}$ \n'
     txt += f'$\\chi^2 = {chisq:.2f}$ \n'
     txt += f'DOF$ = {dof}$'
     ax.text(0.02, 0.775, txt, transform=ax.transAxes , fontsize=8, va='top')
