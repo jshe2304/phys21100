@@ -52,7 +52,7 @@ The uncertainties in our length measurements were determined by the pixelation o
     \label{fig:measurement2-zoom}
 \end{figure}
 
-We also reported the uncertainty in our timestamps, which are discretized to the frame rate. The error, when considering this discrete sampling, is conservatively $\frac{1}{2f}$ for frame rate $f$. 
+We also reported the uncertainty in our timestamps, which are discretized to the frame rate. The error, when considering this discrete sampling, is $\frac{1}{2f}$ for frame rate $f$. 
 
 From these measurement uncertainties, margins of error can be derived for all fitted quantities via covariances. We leave this computation to our fitting software of choice. 
 
@@ -64,7 +64,7 @@ Jiang et al. \cite{jiang} report that low viscosity liquids exhibit an exponent 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/5water.pdf}
     \caption{Pinch-off measurements for water}
     \label{fig:water1}
 \end{figure}
@@ -73,29 +73,29 @@ Figure \ref{fig:water1} shows our measurements in log-scale. The plot appears ge
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/5waterfit.pdf}
     \caption{Fit of measurements for water droplet.}
     \label{fig:water-fit1}
 \end{figure}
 
-The fitted curve is shown in Figure \ref{fig:water-fit1}. The expected exponent $\gamma = \frac{2}{3}$ falls just outside our fitted exponent's margin of error $\gamma = $. However, it is close enough that the discrepancy could plausibly be a result of mishandling of uncertainty, impurities within the water we use, or biases within our measurement procedure. We also note the ambiguous oscillatory behavior of residuals in the early stage. The nature of this should be explored in future work. 
+The fitted curve is shown in Figure \ref{fig:water-fit1}. The expected exponent $\gamma = \frac{2}{3}$ falls just outside our fitted exponent's margin of error $\gamma = 0.61 \pm 0.03$. However, it is close enough that the discrepancy could plausibly be a result of mishandling of uncertainty, impurities within the water we use, or biases within our measurement procedure. We also note the ambiguous oscillatory behavior of residuals in the early stage. The nature of this should be explored in future work. 
 
-To elucidate these results, we conducted a second round of measurements, this time focusing on the moments just before pinch-off. Our measurements and a fit are shown in Figure \ref{fig:water-fit2}
+To elucidate these results, we conducted a second round of measurements, this time focusing on the moments just before pinch-off. Our measurements and a fit are shown in Figure \ref{fig:water-fit2}. 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/4.pdf}
     \caption{Fit of measurements for water droplet.}
     \label{fig:water-fit2}
 \end{figure}
 
-Though our uncertainties here were high due to the poor quality of our video, the expected value of $\gamma = \frac{2}{3}$ does fall within our margin of error $\gamma = $. Though these results do not offer the definitive evidence we hoped to find, they continue to affirm the general ballpark of exponents we hoped to confirm. 
+Though our uncertainties here were high due to the poor quality of our video, the expected value of $\gamma = \frac{2}{3}$ does fall within our margin of error $\gamma = 0.78 \pm 0.18$. These results do not offer the definitive evidence we hoped to find, but they continue to affirm the general ballpark of exponents we hoped to confirm. 
 
 Jiang et al. also report that for high viscosity liquids, the early stage of the drop-off exhibits exponent of $\gamma = \frac{2}{3}$ as in the low viscosity case. However, in the late stages, the exponent should change to $\gamma = 1$. These two exponents correspond to inertial and viscous regimes, respectively. We explored this claim by taking measurements of the bottom pinch-off of a $20/40$ mixture of water and glycerine. Glycerine is highly viscous, measuring on the order of $870,000$ cP. 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/5glyce.pdf}
     \caption{Pinch-off measurements for 20/40 glycerine mixture}
     \label{fig:glycerine}
 \end{figure}
@@ -104,19 +104,19 @@ Figure \ref{fig:glycerine} shows our collected data again plotted in log-scale. 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/5glycefit1.pdf}
     \caption{Fit for early stage of 20/40 glycerine mixture droplet.}
     \label{fig:glycerine-fit1}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/5glycefit2.pdf}
     \caption{Fit for later stage of 20/40 glycerine mixture droplet.}
     \label{fig:glycerine-fit2}
 \end{figure}
 
-Figures \ref{fig:glycerine-fit1} and \ref{fig:glycerine-fit2} show curves fitted to the early and later stages of the pinch-off, respectively. Our expected exponents of $\gamma = \frac{2}{3}$ and $\gamma = 1$ fall within our fit margins of error for both regions. This offers strong evidence in support of Jiang et al. claims. We report our fitted exponents in Table \ref{tab:exponents}
+Figures \ref{fig:glycerine-fit1} and \ref{fig:glycerine-fit2} show curves fitted to the early and later stages of the pinch-off, respectively. Our expected exponents of $\gamma = \frac{2}{3}$ and $\gamma = 1$ fall within our fit margins of error for both regions. This offers strong evidence in support of Jiang et al. We report our fitted exponents in Table \ref{tab:exponents}
 
 \begin{table}[!h]
     \centering
@@ -126,8 +126,10 @@ Figures \ref{fig:glycerine-fit1} and \ref{fig:glycerine-fit2} show curves fitted
         \hline
         Water & $0.61 \pm 0.03$ & $0.00011 < t_d - t < 0.0043$ \\
         \hline
-        Glycerine Mix & $0.90 \pm 0.26$ & $0.00011 < t_d - t < 0.00091$ \\
-        & $0.72 \pm 0.07$ & $0.0010 < t_d - t < 0.0032$ \\
+        Water & $0.78 \pm 0.18$ & $0.00019 < t_d - t < 0.0022$ \\
+        \hline
+        Glycerine Mix  & $0.96 \pm 0.30$ & $0.00011 < t_d - t < 0.00079$ \\
+        & $0.73 \pm 0.06$ & $0.00079 < t_d - t < 0.0032$ \\
         \hline
     \end{tabular}
     \caption{Fitted scaling exponents for water and glycerine mix. }
@@ -142,7 +144,7 @@ To test this hypothesis, we performed the same procedure except this time focusi
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/6top.pdf}
     \caption{Pinch-off measurements and fit for top pinch-off}
     \label{fig:top-pinchoff}
 \end{figure}
@@ -153,7 +155,7 @@ We observe an exponent of $\gamma=0.64 \pm 0.04$, which contains the expected va
 
 We also ask to what degree our measurements for one droplet reflect generic phenomena that may be observed across all drops. That is, are these experiments repeatable? Or are there large, systematic differences between successive drops that we must account for? 
 
-In this section, we conduct a preliminary investigation into repeatability by measuring the maximum width of the droplet neck. Using a similar setup as before, we take high-frame rate videos of the droplet neck after complete pinch-off, and then take measurements each frame using software. Our quantification of uncertainty follows the same heuristic described above. Figure \ref{fig:measurment2} shows an example of our workflow. 
+In this section, we conduct a preliminary investigation into repeatability by measuring the maximum width of the droplet neck. Using a similar setup as before, we take high-frame rate videos of the droplet neck after complete pinch-off, and then take measurements each frame using software. Our quantification of uncertainty follows the same heuristic described above. Figure \ref{fig:measurement2} shows an example of our workflow. 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{experiment3/figures/screenshots/measurement2.png}
@@ -163,25 +165,25 @@ In this section, we conduct a preliminary investigation into repeatability by me
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{experiment3/figures/}
-    \caption{Neck max-width measurements from 4 successive water droplets plotted together. }
-    \label{fig:repeatability1}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/7all.pdf}
+    \caption{Neck max-width measurements from 4 successive water droplets plotted together.}
+    \label{fig:repeatability}
 \end{figure}
 
-Our neck max-width measurements are plotted in Figure \ref{fig:repeatability1}. Evidently, the maximum width of the neck evolves similarly across all measured drops, increasing rapidly after drop-off before peaking and then falling off. 
+Our neck max-width measurements are plotted in Figure \ref{fig:repeatability}. Evidently, the maximum width of the neck evolves similarly across all measured drops, increasing rapidly after drop-off before peaking and then falling off. 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{experiment3/figures/}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/7mean.pdf}
     \caption{Mean neck maximum width measurements with included uncertainty margins. }
     \label{fig:repeatability-mean}
 \end{figure}
-Figure \ref{fig:repeatability-mean} summarizes this relationship by plotting the mean and standard deviation bounds of the measurements at each time step. Now, the sample size is small, but the uncertainties observed are fairly low, and the general shape of the curve we observe likely holds in general. However, we followed up by investigating possible time-dependencies in the behavior of successive drops. Figure \ref{eq:equation1} shows the residuals of each drop from the mean curve. 
+Figure \ref{fig:repeatability-mean} summarizes this relationship by plotting the mean and standard deviation bounds of the measurements at each time step. Now, the sample size is small, but the uncertainties observed are fairly low, and the general shape of the curve we observe likely holds in general. However, we followed up by investigating possible time-dependencies in the behavior of successive drops. Figure \ref{fig:repeatability-residuals} shows the residuals of each drop from the mean curve. 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{experiment3/figures/}
-    \caption{Residuals of neck max-width measurements. There is visual evidence of homoskedasticity. }
-    \label{fig:repeatability1}
+    \includegraphics[width=0.75\textwidth]{experiment3/figures/plots/7res.pdf}
+    \caption{Residuals of neck max-width measurements. Visually, the residuals appear generally homoscedastic.}
+    \label{fig:repeatability-residuals}
 \end{figure}
 
 From this plot, we conclude that the series is likely homoscedastic, as the residuals seem random and independent of time and drop index. This conclusion affirms our hypothesis that the drop experiments we have conducted thus far are repeatable. More data and the application of regression analysis tests will be useful in clarifying the repeatability of drop pinch-off. 
