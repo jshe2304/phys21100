@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 from scipy import optimize
 
 def linear(p,x):
-    return p[0]*x + p[1]
+    return p[0] * x + p[1]
+
+def scaling(p, x):
+    return p[0] * x
 
 def residual(p,func, xvar, yvar, err):
     return (func(p, xvar) - yvar)/err
@@ -69,17 +72,18 @@ def data_fit(p0, func, xvar, yvar, err, tmi=0):
     
     return pf, pferr, chisq,dof
 
-def fit(X, Y, Y_err, fit_lower, fit_upper, xlabel, ylabel, title, ax=None, ):
+def fit(X, Y, Y_err, fit_range=None, ax=None, ):
 
     # Fit Data
+    if fit_range is not None: fit_lower, fit_upper = fit_range
     
-    x = X[fit_lower:fit_upper].to_numpy()
-    y = Y[fit_lower:fit_upper].to_numpy()
-    y_err = Y_err[fit_lower:fit_upper].to_numpy()
+    x = X[fit_lower:fit_upper] if fit_range is not None else X
+    y = Y[fit_lower:fit_upper] if fit_range is not None else Y
+    y_err = Y_err[fit_lower:fit_upper] if fit_range is not None else Y_err
     
     print(f'Fit Region: ({x.min()}, {x.max()})')
 
-    params_0 = [1, 10]
+    params_0 = [0, y.mean()]
 
     params, params_err, chisq, dof = data_fit(params_0, linear, x, y, y_err)
     
@@ -102,14 +106,11 @@ def fit(X, Y, Y_err, fit_lower, fit_upper, xlabel, ylabel, title, ax=None, ):
     
     # Shade Fit Region
     
-    ax.axvspan(x[-1], x[0], alpha=0.25, label='Fit Region')
+    if fit_range is not None: ax.axvspan(x[-1], x[0], alpha=0.25, label='Fit Region')
     
     # Set Labels
 
     ax.grid(alpha=0.5)
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
-    ax.set_title(title)
     ax.legend(loc='upper left')
     
     return params, params_err, chisq, dof
