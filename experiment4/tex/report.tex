@@ -46,10 +46,10 @@ Visual inspection immediately tells us that this data is linear, so we fit a fun
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{experiment4/figures/calibration.pdf}
-    \caption{}
+    \caption{Calibration function fit for oscilloscope voltage readings. Note that DOF stands for degrees of freedom and $\chi^2$ is the unreduced chi-square score. }
     \label{fig:calibration}
 \end{figure}
-The fit we achieve is very good, and the linear curve visually models the data almost perfectly. We determine that $a = 0.033033 \pm 0.000016$ and $b = 0.54046 \pm 0.00018$, which have fairly low uncertainties. Our reduced chi-square score $\bar{\chi}^2 = 66.52$ is somewhat high, however we attribute this to the small sample size. 
+The fit we achieve is very good, and the linear curve visually models the data almost perfectly. We determine that $a = 0.033033 \pm 0.000016$ amps per volts and $b = 0.54046 \pm 0.00018$ amps, which have fairly low uncertainties. Our reduced chi-square score $\bar{\chi}^2 = 66.52$ is somewhat high, however we attribute this to the small sample size. 
 
 \section{The weak field Zeeman effect} \label{sec:weak}
 
@@ -123,7 +123,7 @@ then fit a linear function for $B$ against $\frac{\Delta E}{\mu_B}$ to get slope
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.75\textwidth]{experiment4/figures/rb85.pdf}
-    \caption{Zeeman equation fit for Rubidium-85 isotope. The fitted Landé g-factor is within a margin of error of expected values $g_f = \frac{1}{3}$}
+    \caption{Zeeman equation fit for Rubidium-85 isotope. The fitted Landé g-factor is within a margin of error of expected values $g_f = \frac{1}{3}$. Note that DOF stands for degrees of freedom and $\chi^2$ is the unreduced chi-square score. }
     \label{fig:rb85}
 \end{figure}
 
@@ -134,7 +134,7 @@ then fit a linear function for $B$ against $\frac{\Delta E}{\mu_B}$ to get slope
     \label{fig:rb87}
 \end{figure}
 
-Evidently, the fits we produced are very good. Visually, they model the data very well, and we achieve reasonble uncertainty on our fit parameters. The reduced chi-square is $\bar{\chi}^2=0.008$ for Rb-85 $\bar{\chi}^2=0.084$ for Rb-87, which indicate overfitting or poor error modeling. We hypothesize that we significantly overestimated our uncertainties, thus producing these small values. 
+Evidently, the fits we produced are very good. Visually, they model the data very well, and we achieve reasonble uncertainty on our fit parameters. The reduced chi-square is $\bar{\chi}^2=0.008$ for Rb-85 and $\bar{\chi}^2=0.084$ for Rb-87, which indicate overfitting or poor error modeling. We hypothesize that we significantly overestimated our uncertainties, thus producing these small values. 
 
 \subsection{A discussion on the fit intercept}
 
@@ -151,15 +151,15 @@ Now we briefly explore the strong field Zeeman effect. Using an external power s
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{experiment4/figures/rb85_strong.jpg}
-    \caption{Strong field Zeeman splitting of Rb-85 depumping dip into 6 dips. The RF frequency used was 5.690 MHz and the horizontal coil current supplied was 1.41 amps.}
+    \includegraphics[width=0.75\textwidth]{experiment4/figures/rb85-strong.jpg}
+    \caption{Strong field Zeeman splitting of Rb-85 depumping dip into 6 dips. The RF frequency used was 5.690 MHz and the horizontal coil current supplied was 1.41 amps. The depumping dips are marked with dotted arrows. }
     \label{fig:rb85strong}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.75\textwidth]{experiment4/figures/rb87_strong.jpg}
-    \caption{Strong field Zeeman splitting of Rb-87 depumping dip into 4 dips. The RF frequency used was 5.000 MHz and the horizontal coil current supplied was 0.84 amps.}
+    \includegraphics[width=0.75\textwidth]{experiment4/figures/rb87-strong.jpg}
+    \caption{Strong field Zeeman splitting of Rb-87 depumping dip into 4 dips. The RF frequency used was 5.000 MHz and the horizontal coil current supplied was 0.84 amps. The depumping dips are marked with dotted arrows. }
     \label{fig:rb87strong}
 \end{figure}
 
