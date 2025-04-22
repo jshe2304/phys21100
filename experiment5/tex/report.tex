@@ -1,0 +1,76 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Positron Emission Tomography}
+\author{Jay Shen}
+\date{April 2025}
+
+\begin{document}
+
+\maketitle
+
+Positron emission tomography (PET) is a technique for imaging objects using radiation. In this lab, we make use of a simple PET setup to image a collection of radiation source distributions. 
+
+\section{PET Apparatus}
+
+\subsection{Motor Pulse Calibration}
+
+Here, we make use of a PET apparatus composed of a rotary platform mounted on a linear track and a PMT coincidence detector. Before we use the setup, we must determine the conversion factors from motor pulses, with which we control the linear track, and the actual distance traveled by the platform. We took several measurements: each time we did a lateral reset, moved the platform by some number of pulses, and then measured the distance traveled. This data and a linear regression, from which we get conversion factors, are shown in Figure \ref{}. 
+
+From the fit, we get a conversion factor of $(3.13 \pm 0.03) \cdot 10^{-6}$ meters per pulse. The rotary pulse conversion factor was provided to be $\frac{180}{25600}$ degrees per pulse. We assume there is negligible uncertainty in this provided value. 
+
+\subsection{1D PET of one source}\label{sec:resolution}
+
+To test our setup, we place a single Na-22 source on the platform and executed a PET cycle. To determine both the location of the source on the platform, we choose to fit a mixture of two Gaussians to our data. This conveniently models background noise and gives us a better estimate of the true peak. From the fitted Gaussian, we derive our metric for resolution: the full width at half maximum ($FWHM = 2 \sigma \sqrt{2 \ln 2}$). We perform this fitting procedure for three source setups and show the fits and $FWHM$ values in Figure \ref{}. 
+
+
+One conclusion from these trials is that our PMT setup is poorly calibrated, as otherwise Figures \ref{}b and \ref{}c should be the same. In lieu of a technical fix, we keep this in mind for the rest of the lab. Our second conclusion is that the resolution for one source is $W_1 = 0.0188 \pm 0.000122$ meters, which is the FWHM from Figure \ref{}a. 
+
+\subsection{1D PET of two sources}
+
+Now we take measurements for two source setups with varying amounts of separation. We wish to determine how close the sources can be before becoming indistinguishable from a single source. To quantify in-distinguishability, we again fit a sum of two Gaussians to the two-source data to model the noise and the peak(s). If the sources are indistinguishable, then the peak should resemble the single source peak and have a FWHM close to $W_1 = 0.0188 \pm 0.000122$. In the case of distinguishable sources, the FWHM will be larger than $W_1$. The data and fits for five different two-source setups are shown in \ref{}. 
+
+Unfortunately, as we see in from the plots, in all setups the sources are distinguishable by our metric. This is corroborated by a closer visual analysis, which reveals that all of the coincidence spreads are clearly bimodal, or exhibit shoulders, indicating the presence of two sources. At the time of data collection, we did not inspect our data carefully enough, and only upon post-hoc quantitative inspection did this problem reveal itself. 
+
+However, we can still go ahead and estimate the distance of unresolvability. We fit a linear curve relating separation distance and FWHM in Figure \ref{}. 
+
+We extrapolate this curve to solve for where the FWHM equals $W_1 = 0.0188 \pm 0.000122$ and obtain $0.00893 \pm 0.000273$ meters as the minimum resolvable separation. 
+
+\section{PET Imaging of Unknown Distribution}\label{sec:unknown}
+
+Now we test our procedure on an unknown source distribution. We opt to traverse the linear track 40 times, each traversal taking 90 steps of 1000 pulses (around 3 milimeters) to cover the entire track. At each step, the PMTs scan for 20 seconds to obtain the best possible data within a reasonable time frame. At the end of each full traversal, the platform rotates 320 pulses, or 4.5 degrees. That way, we achieve a full 180 degree rotation. The sinogram relating angle, lateral position, and number of coincidences is shown in Figure \ref{}. 
+
+An inverse Radon transform is applied to the sinogram to reconstruct the source distribution, as shown in Figure \ref{}. 
+
+To determine the positions of the sources, we identify a source peak by hand, then fit a 2D isotropic Gaussian function to it. The mean of the fitted peak is the source position estimate and our fitting software provides uncertainties automatically. The fitting process is shown in Figure \ref{} and the extracted source coordinates are shown in Figure \ref{} and listed in Table \ref{tab:coordinates}. 
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c |}
+        \hline
+        x & y \\
+        \hline
+        $0.1713 \pm 0.0002$ & $0.0885 \pm 0.0002$ \\
+        $0.1520 \pm 0.0003$ & $0.1651 \pm 0.0003$ \\
+        $0.2217 \pm 0.0003$ & $0.1860 \pm 0.0003$ \\
+        $0.0743 \pm 0.0008$ & $0.1708 \pm 0.0008$ \\
+        \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:coordinates}
+\end{table}
+
+\section{PET Imaging of Challenge Distribution}
+
+To image an unknown distribution in under constrained time, we elect to change the values of all variables. We complete 8 iterations of a full lateral sweep, taking 45 steps of 2000 lateral motor pulses (around 6.3 millimeters). At each step we scan for 5 seconds. At the end of each iteration, we rotate by 1600 rotary motor pulses (around 22.5 degrees), to capture the full 180 degrees. We chose these parameters heuristically under the assumption that all degrees of freedom are equally important and that we should not prioritize one or the other. The sinogram and reconstruction are shown in Figures \ref{} and \ref{}. 
+
+
+
+We follow the same procedure from Section \ref{sec:unknown} to determine the source position. The fitted Gaussian contour is shown in Figure \ref{}. 
+
+
+
+
+\end{document}
