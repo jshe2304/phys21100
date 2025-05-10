@@ -1,0 +1,81 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Mass of the Neutron}
+\author{Jay Shen}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Setup}
+
+The first order of business is to calibrate our PMT setup. We utilize a variety of button sources with known spectra to calibrate the relationship between pulse channel and energy. We collect the spectra, as shown in Figure \ref{}, and fit Gaussians to the energy peaks. The fitted mean of the Gaussians indicate the channel position of the energy peak. We then perform a linear relating channel position to known energy. This process is shown in Figure \ref{}. From now on, we use the obtained calibration coefficients to convert pulse channel to energy. 
+
+\section{Establishing the origin of the capture gamma peak}
+
+We seek to determine the mass of the neutron. As we will see in more detail later, this can be done in proxy by measuring the capture gammas $\gamma$ produced via the following interaction:
+\[
+n + p \rightarrow d + \gamma
+\]
+where $n$, $p$, and $d$ refer to neutrons, protons, and deuterons, respectively. For convenience, we refer to this process from now on as deuteronization. 
+
+We observe deuteronization by bombarding a material with neutrons. Each neutron either thermalizes or deuteronizes, and the resultant spectra is a sum of spectra from the thermalized neutrons and the deuteronization gammas. We want to isolate the gammas produced by deuteronization in order to estimate the mass of the neutron. However, our neutron source as well as our environment introduce not only a neutron background but also a gamma background. So, we must carefully identify which parts of the spectra correspond to the deuteronization gammas of interest. 
+
+Ideally, we would like our detector to only measure the gammas produced by deuteronization. Unfortunately, it will pick up on least two other phenomena: 
+\begin{enumerate}
+    \item Background gammas from the source and the environment. 
+    \item Thermalized neutrons which pass through the material into the detector. 
+\end{enumerate}
+We can attenuate the spectral footprints of these external phenomena by shielding the detector with: 
+\begin{enumerate}
+    \item lead, which blocks gammas and neutrons. 
+    \item graphite, which blocks neutrons. 
+    \item hydrocarbons, which block neutrons but also produce deuteronization gammas in the process. 
+\end{enumerate}
+By carefully constructing shielding from these three materials, we can elucidate the components of the spectrum and identify the deuteronization gammas. 
+
+\subsection{Attenuation study}
+
+First, we observe the bare, unplugged source spectrum when shielded with varying amounts of lead. As shown in Figure \ref{}, lead attenuates various parts of the spectrum a different amount. We identify by eye some regions that may correspond to deuteronization gammas or thermalized neutrons, namely the peak around 2000 KeV and the massif around 4000 KeV. In principle, these features should be attenuated more strongly than those not originating from the source. To quantify this attenuation, we bin the spectra and fit exponential functions $f(x) = Ae^{-\lambda x}$ relating the bin mean rate to the lead thickness. We extract the attenuation coefficient $\lambda$ and plot it against the energy in Figure \ref{}. As we expect, the regions corresponding to the previously identified peak and massif attenuate much more strongly than their surroundings. 
+
+\subsection{Isolating the deuteronization gammas}
+
+Now that we have a principled way to block confounding gammas and neutrons, we move to isolate the deuteronization gammas. To accomplish this, we keep the PMT shielded by lead, but place paraffin within the shield. This setup works to one, block external gammas, and two, produce deuteronization gammas by allowing the neutrons which do pass through the lead to interact with proton-rich paraffin and deuteronize. Now, we must consider the following trade-off: more lead means less outside gammas, but less neutrons to deuteronize. We elect to shield the detector with two lead blocks, as Figure \ref{} shows it to be the minimal thickness at which point confounding features are mostly attenuated. We take three spectra with varying amounts of paraffin, as shown in Figure \ref{}. We observe that the $2000$ KeV peak is clearly accentuated by increasing amounts of paraffin, whereas the $4000$ KeV massif is not. Thus, we hypothesize the former corresponds to deuteronization gammas and the latter corresponds to thermalized neutrons. 
+
+To strengthen this claim, we check that the $4000$ KeV gammas are not the product of alternative interactions, perhaps between neutrons and the carbon atoms in the paraffin. We test this by replacing the paraffin with graphite, which is composed of only carbon. As shown in Figure \ref{}, we find that the peak does not appear. This is strong evidence against the possibility of neutron-carbon interaction gammas. 
+
+\section{Measuring the mass of the neutron}
+
+Now that we are confident the $2000$ KeV peak corresponds to deuteronization gammas, we can determine its actual energy and estimate the mass of the neutron. To accomplish this, we remove all material between the source and the detector. Then, we insert a lucite plug in the source port. Lucite is a hydrocarbon, like paraffin, and accordingly contains protons which will deuteronize when bombarded with neutrons from the source. This way, the detector is provided with a focused beam of deuteronization gammas. The spectra collected over four distinct trials using this setup are shown in Figure \ref{} (note that trial 0 was conducted on day one, and trails 1 through 3 were conducted on day two). We then fit Gaussian functions, with linear background terms included, to the peaks as shown in Figure \ref{}. The means $\mu$ of the Gaussians are extracted and interpreted as the gamma energy. 
+
+Taking the mean of these estimated gamma energies gives $E_\gamma = 2235.9088 \pm 0.2890$ KeV. Now, we know from theory that:
+\[
+E_\gamma = (M_d - M_p - M_n)c^2
+\]
+where $M_d$, $M_p$, and $M_n$ are the mass of the deuteron, proton, and neutron, respectively. Then:
+\[
+M_n = M_d - M_p - \frac{E_\gamma}{c^2}
+\]
+From NIST, $M_p = 1.67262192595(52) \cdot 10^{-27}$ kg and $M_d = 3.3435837768(10) \cdot 10^{-27}$ kg, so we compute the mass of the neutron as $1.6669760(5) \cdot 10^{-27}$ kg. 
+
+\section{Conclusion}
+
+In this experiment, we have estimated the mass of the neutron to be $1.6669760(5) \cdot 10^{-27}$ kg by observing gammas emitted from deuteron formation. Compared to the NIST values, $1.674 927 500 56(85) \cdot 10^{-27}$ kg, we are in the ballpark but off by many margins of error. Why? 
+
+First, we affirm that our procedure measured a spectrum peak corresponding to the deuteronization gamma. Using lead, we attenuated gammas and neutrons to determine which features of the spectrum were external to the detector. Then, we used paraffin inside a lead shield and observed that a single peak was accentuated. Since hydrocarbons are proton-rich, this peak was likely the product of deuteronization. We confirmed that this was not due to some other interaction with the carbon atoms by replacing the paraffin with graphite, observing no peak accentuation with that setup. 
+
+Now, when we measured the energy of that gamma peak, we obtained a mean of $E_\gamma = 2235.9088 \pm 0.2890$ KeV across four trials. We know from literature that the energy should be closer to $2224$ KeV. We attribute this error, in part, to issues with the gain drift and the calibration of our setup. As seen in Figure \ref{}, trial 0 and trials 1-3, which were taken a week apart, appear to come from two different distributions. The values taken during the second week are some $25$ KeV larger than those taken during the first week. Our channel-energy calibration was also completed during week 1. In the future, we ought to design a better setup that manages gain drift and reports more accurate energy values. To supplement this, we should also be more rigorous with our calibrations and re-calibrate every time we collect data. 
+
+There is also the matter of an insufficiently descriptive theory. Literature gives the true relationship between the masses and energies as:
+\[
+M_n = M_d - M_p - \frac{E_\gamma}{c^2} - R_{d}
+\]
+where $R_d$ is associated with the recoil energy of the deuteron. Since our calculation did not account for this effect, we would expect a biased estimate. 
+
+To conclude, we were reasonably successful in obtaining a ballpark estimate of the neutron's mass. There were issues with our setup and theory, leading to a skewed estimate, but our methods were otherwise rigorous and motivated, and can be built upon in future iterations. 
+
+\end{document}
